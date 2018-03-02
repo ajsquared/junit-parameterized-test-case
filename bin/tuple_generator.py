@@ -11,7 +11,7 @@ if __name__ == '__main__':
     with open(os.path.join(script_dir, 'TupleParameter.java.template'), 'r') as template_file:
         template = template_file.read()
         for num_elements in range(1, 27):
-            fields = string.ascii_lowercase[0:num_elements]
+            fields = map(lambda i: '_%d' % i, range(1, num_elements + 1))
             generics = string.ascii_uppercase[0:num_elements]
 
 

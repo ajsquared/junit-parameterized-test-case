@@ -1,5 +1,6 @@
 package com.andrewjamesjohnson.junit;
 
+import com.andrewjamesjohnson.junit.tuple.Tuple2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -10,28 +11,13 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(ParameterizedTestCaseRunner.class)
 public class ParameterizedTestCaseExampleTest {
-    public static class ExampleParameter implements Parameter {
-        String a;
-        String b;
-
-        ExampleParameter(String a, String b) {
-            this.a = a;
-            this.b = b;
-        }
+    public static class ExampleParameterGenerator implements ParameterGenerator<Tuple2<String, String>> {
 
         @Override
-        public String description() {
-            return String.join(",", a, b);
-        }
-    }
-
-    public static class ExampleParameterGenerator implements ParameterGenerator<ExampleParameter> {
-
-        @Override
-        public Collection<ExampleParameter> generate() {
+        public Collection<Tuple2<String, String>> generate() {
             return Arrays.asList(
-                    new ExampleParameter("a", "b"),
-                    new ExampleParameter("c", "d")
+                    Tuple2.of("a", "b"),
+                    Tuple2.of("c", "d")
             );
         }
     }
@@ -42,7 +28,7 @@ public class ParameterizedTestCaseExampleTest {
     }
 
     @ParameterizedTest(generator = ExampleParameterGenerator.class)
-    public void parameterizedTest(ExampleParameter param) {
-        assertTrue(param.description().startsWith(param.a));
+    public void parameterizedTest(Tuple2<String, String> param) {
+        assertTrue(param.description().startsWith(param._1));
     }
 }
