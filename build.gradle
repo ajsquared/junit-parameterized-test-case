@@ -13,8 +13,9 @@ apply plugin: 'signing'
 apply plugin: 'io.codearte.nexus-staging'
 
 group 'com.andrewjamesjohnson'
-version '1.0.1'
+version '1.0.2-SNAPSHOT'
 archivesBaseName = "junit-parameterized-test-case"
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 sourceCompatibility = 1.8
 
@@ -41,6 +42,7 @@ artifacts {
 }
 
 signing {
+    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
 }
 
