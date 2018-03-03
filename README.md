@@ -1,4 +1,4 @@
-# junit-parameterized-test-case
+# junit-parameterized-test-case [![Build Status](https://travis-ci.org/ajsquared/junit-parameterized-test-case.svg?branch=master)](https://travis-ci.org/ajsquared/junit-parameterized-test-case)
 
 `junit-parameterized-test-case` is a library for JUnit 4 that provides greater flexibility in writing parameterized tests.
 
