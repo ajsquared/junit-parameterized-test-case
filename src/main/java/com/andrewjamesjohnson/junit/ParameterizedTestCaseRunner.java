@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * JUnit test runner that supports parameterized test cases
+ */
 public class ParameterizedTestCaseRunner extends BlockJUnit4ClassRunner {
     public ParameterizedTestCaseRunner(Class<?> klass) throws InitializationError {
         super(klass);
