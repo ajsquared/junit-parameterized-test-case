@@ -13,7 +13,7 @@ apply plugin: 'signing'
 apply plugin: 'io.codearte.nexus-staging'
 
 group 'com.andrewjamesjohnson'
-version '1.0.0'
+version '1.0.1'
 archivesBaseName = "junit-parameterized-test-case"
 
 sourceCompatibility = 1.8
@@ -87,4 +87,8 @@ uploadArchives {
             }
         }
     }
+}
+
+nexusStaging {
+    packageGroup = 'com.andrewjamesjohnson'
 }
