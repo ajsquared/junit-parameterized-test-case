@@ -14,7 +14,7 @@ apply plugin: 'io.codearte.nexus-staging'
 
 group 'com.andrewjamesjohnson'
 version '1.0.0'
-archivesBaseName = "example-application"
+archivesBaseName = "junit-parameterized-test-case"
 
 sourceCompatibility = 1.8
 
