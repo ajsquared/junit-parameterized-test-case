@@ -16,6 +16,9 @@ group 'com.andrewjamesjohnson'
 version '1.0.2-SNAPSHOT'
 archivesBaseName = "junit-parameterized-test-case"
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+// If these properties aren't set, use a dummy value to prevent failures
+ext.ossrhUsername = project.hasProperty('ossrhUsername') ? project.ossrhUsername : 'dummy'
+ext.ossrhPassword = project.hasProperty('ossrhPassword') ? project.ossrhPassword : 'dummy'
 
 sourceCompatibility = 1.8
 
